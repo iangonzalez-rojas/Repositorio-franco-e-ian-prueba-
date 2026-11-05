@@ -1,0 +1,20 @@
+def crearReporte(temperaturas):
+    # 1. Abrimos (o creamos) el archivo "informe.txt" en modo escritura ('w')
+    with open("informe.txt", "w", encoding="utf-8") as archivo:
+        # 2. Recorremos cada clave (ciudad) y valor (tupla de temperaturas) del diccionario
+        for ciudad, (minima, maxima) in temperaturas.items():
+            # 3. Formateamos la cadena exactamente como lo pide el ejercicio
+            linea = f"{ciudad}: max {maxima}°, min {minima}°\n"
+            # 4. Escribimos la línea en el archivo
+            archivo.write(linea)
+
+
+# --- Ejemplo de uso para probar el código ---
+temp = {
+    "Viña del Mar": (9, 26),
+    "Valparaiso": (10, 24),
+    "Quilpue": (7, 30),
+    "Quintero": (4, 22),
+}
+
+crearReporte(temp)
